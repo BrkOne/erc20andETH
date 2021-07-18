@@ -1,6 +1,6 @@
 {
-  "name": "placecodex/erc20-php",
-  "description": "This library provides simple way to interact with Ethereum ERC20 token",
+  "name": "harensarma/erc20-php",
+  "description": "This library provides simple way to interact with Ethereum ERC20 token extended from the below author's another package for personal use of mine",
   "type": "library",
   "license": "MIT",
    "version": "dev",
