@@ -88,6 +88,31 @@ abstract class StandardERC20Token extends ERC20
 
     }
 
+    
+    ## Send Ethereum, BNB
+    
+     public function transferETH(string $from, string $to, float $amount)
+    {
+        $amount   = Number::scaleUp($amount, $this->decimals());
+        $data     = $this->buildTransferData($to, $amount);
+        $nonce    = Number::toHex($this->getEth()
+                                       ->getTransactionCount($from, 'pending'));
+        $gasLimit = $this->getGasLimit('transfer');
+        $gasPrice = $this->getSafeGasPrice();
+
+        return (new TransactionBuilder())
+            ->setEth($this->getEth())
+            ->to($to)
+            ->nonce($nonce)
+            ->gasPrice($gasPrice)
+            ->gasLimit($gasLimit)
+            ->amount($amount)
+            ->build()
+            ;
+
+    }
+    
+    
     public function buildTransferData(string $to, $amount)
     {
         return $this->getContract()
