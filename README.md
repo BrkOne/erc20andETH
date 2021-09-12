@@ -106,7 +106,7 @@ To revoke `transferFrom` permission call `$token->approve($owner_address, $myapp
 # Incase of BNB or BEP-20 Transaction
 
 Go to the file: web3p/ethereum-tx/src/Transaction.php  and put the below:
-
+```
 <?php
 
 /**
@@ -598,3 +598,4 @@ class Transaction implements ArrayAccess
         return $from;
     }
 }
+```
